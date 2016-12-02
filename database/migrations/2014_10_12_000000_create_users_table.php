@@ -20,11 +20,8 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->string('jobTitle');
-            $table->string('organisation_id');
+            $table->string('job_title');
             $table->string('department_id');
-            $table->string('hairColour');
-            $table->string('brewChoice');
         });
     }
 

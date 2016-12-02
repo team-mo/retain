@@ -13,10 +13,10 @@ class CreateOrganisationsTable extends Migration
      */
     public function up()
     {
-        Schema::table('organisations', function(Blueprint $table) {
+        Schema::create('organisations', function(Blueprint $table) {
             $table->increments('id');
             $table->string('name')->unique();
-            $table->string('industry_id');
+            $table->integer('industry_id');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->string('job_title');
-            $table->string('department_id');
+            $table->integer('department_id');
         });
     }
 

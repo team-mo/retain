@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateIndustriesTable extends Migration
+class CreateUpdatesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateIndustriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('industries', function(Blueprint $table) {
+        Schema::create('updates', function(Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->unique();
-            $table->timestamps();
+            $table->integer('learning_id');
+            $table->string('description');
         });
-
     }
 
     /**
@@ -28,6 +27,6 @@ class CreateIndustriesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('industries');
+        Schema::drop('updates');
     }
 }

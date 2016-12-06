@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateIndustriesTable extends Migration
+class CreateSkillUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateIndustriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('industries', function(Blueprint $table) {
-            $table->increments('id');
-            $table->string('name')->unique();
-            $table->timestamps();
+        Schema::create('skill_user', function(Blueprint $table) {
+            $table->integer('user_id');
+            $table->integer('skill_id');
         });
-
     }
 
     /**
@@ -28,6 +26,6 @@ class CreateIndustriesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('industries');
+        Schema::drop('skill_user');
     }
 }

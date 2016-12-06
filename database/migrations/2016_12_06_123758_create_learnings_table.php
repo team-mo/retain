@@ -16,8 +16,8 @@ class CreateLearningsTable extends Migration
         Schema::create('learnings', function(Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->date('dateStarted');
-            $table->date('dateFinished');
+            $table->date('date_started');
+            $table->date('date_finished');
             $table->integer('user_id');
         });
     }

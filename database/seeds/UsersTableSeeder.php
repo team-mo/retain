@@ -11,16 +11,8 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker\Factory::create();
-
-        for ($i = 0; $i < 10; $i++) {
-        	App\User::create([
-        		'name' => $faker->name,
-        		'email' => $faker->email,
-        		'password' => bcrypt('secret'),
-        		'job_title' => $faker->randomElement($array = array('developer', 'accounts manager', 'tech support')),
-        		'department_id' => 1,
-        		]);
-        }
+        factory(App\User::class, 4)->create()->each(function($user) {
+            $user->departments()->save(factory(App\Department::class)->make());
+        });
     }
 }

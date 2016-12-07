@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLearningsTable extends Migration
+class RemoveDepartmentIdInUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateLearningsTable extends Migration
      */
     public function up()
     {
-        Schema::create('learnings', function(Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->date('date_started');
-            $table->date('date_finished');
-            $table->integer('user_id');
+        Schema::table('users', function ($table) {
+           $table->dropColumn('department_id');
         });
     }
 
@@ -29,6 +25,8 @@ class CreateLearningsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('learnings');
+        Schema::table('users',  function ($table) {
+           $table->integer('department_id');
+        });
     }
 }

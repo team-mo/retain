@@ -10,7 +10,7 @@ class Department extends Model
 		return $this->hasMany('App\User');
 	}
 
-	public function organisation() {
-		return $this->belongsTo('App\Organisation');
+	public function organisations() {
+		return $this->belongsToMany('App\Organisation');
 	}
 }

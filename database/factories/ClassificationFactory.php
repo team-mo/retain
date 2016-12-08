@@ -2,6 +2,6 @@
 
 $factory->define(App\Classification::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->randomElements('programming', 'accountancy', 'volunteering', 'science', 'awesomeness')
+        'name' => $faker->randomElement(['programming', 'accountancy', 'volunteering', 'science', 'awesomeness'])
     ];
 });
